@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몸 속 미생물 프로젝트</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo.png" alt="나의 작은 미생물 친구들">
+            </a>
+        </div>
+        <nav class="nav-menu">
+        <ul>
+            <li class="nav-item item1">
+                <a href="/about.html">미생물이란?</a>
+            </li>
+            <li class="nav-item item2">
+                <a href="/test.html">나의 장은 괜찮을까?</a>
+            </li>
+            <li class="nav-item item3">
+                <a href="/quiz.html">장 속 사건일기</a>
+            </li>
+        </ul>
+        </nav>
+    </header>
+    <section class="quiz-wrap">
+        <div class="book">
+            <div class="book-content">
+                <div class="book-left">
+                <p class="date">5월 11일 수요일 ‘길동이’의 일기</p>
+                <p class="weather">날씨 : 쨍쨍 ☀</p>
+                <h1 class="title">장 속 사건일지</h1>
+                <p class="desc">
+                같이 놀기로 한 친구들이 배탈이 났어요!<br>
+                친구들이 써놓은 일기를 살펴보면서<br>
+                배탈이 난 원인을 찾아봐요!
+                </p>
+                <button class="start-btn">시작하기</button>
+            </div>
+                <div class="book-right">
+                    <img src="/img/quiz_right.png" alt="배탈난 친구 일러스트">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        //헤더 스크롤 시 나타났다 숨기기
+        (function(){
+            let lastScrollY = 0;
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                  header.classList.add('hide');   // ↓ 스크롤 내릴 때 숨김
+                } else {
+                  header.classList.remove('hide'); // ↑ 스크롤 올릴 때 표시
+                }
+                lastScrollY = currentScrollY;
+            });
+        })();
+    </script>
+</body>
+</html>

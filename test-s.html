@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나의 장은 괜찮을까?</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="/index.html"><img src="/img/logo.png" alt="로고"></a>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li class="nav-item item1">s
+                <a href="/about.html">미생물이란?</a>
+            </li>
+            <li class="nav-item item2">
+                <a href="/test.html">나의 장은 괜찮을까?</a>
+            </li>
+            <li class="nav-item item3">
+                <a href="/quiz.html">장 속 사건일기</a>
+            </li>
+        </ul>
+        </nav>
+</header>
+
+<main class="quiz-stage">
+    <div class="board">
+        <img src="/img/test_bg3.png" class="board-img2" alt="배경 보드">
+        <div class="board-inner">
+            <div class="progress"><div class="bar"></div></div>
+
+            <div class="head">
+                <span id="stepBadge" class="step-badge">01</span>
+                <h2 id="qTitle" class="q-title"></h2>
+                <p id="qSub" class="q-sub"></p>
+            </div>
+
+            <div class="quiz-body">
+                <button id="prevBtn" class="nav-btn prev"><span class="icon-arrow"></span><em>이전으로</em></button>
+
+                <form id="quizForm" class="choices"></form>
+
+                <button id="nextBtn" class="nav-btn next"><span class="icon-play"></span><em>다음으로</em></button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-logo"><img src="/img/logo.png" alt="로고"></div>
+    <div class="footer-links"><a>이용약관</a><a>개인정보처리방침</a></div>
+    <div class="footer-address">충청북도 청주시 청원구 안덕벌로19번길 116</div>
+    <div class="footer-copy">© 2025 Cheongju Univ.</div>
+</footer>
+
+<script>
+// ==== 스크롤 시 헤더 숨김 ====
+(function(){
+    let last = 0, header = document.querySelector('header');
+    window.addEventListener('scroll',()=>{
+        const y = window.scrollY;
+        header.classList.toggle('hide', y > last && y > 100);
+        last = y;
+    });
+})();
+
+// ==== 설문 로직 ====
+(() => {
+    const steps = [
+        {title:"밥 먹고 나서 배가 불편했던 적이 있나요?", sub:"(배 아픔, 더부룩함 등)",
+         options:[["전혀 없어요",3],["가끔 있어요",2],["일주일 1~2번",1],["거의 매일",0]]},
+
+        {title:"배가 불편한 증상이 얼마나 영향을 주나요?", sub:"",
+         options:[["매우 불편",0],["가끔 불편",1],["조절 가능",2],["전혀 문제 없음",3]]},
+
+        {title:"채소와 과일을 얼마나 자주 먹나요?", sub:"",
+         options:[["주 1회 미만",0],["주 1회",1],["3~4일에 한 번",2],["매일",4]]},
+
+        {title:"물을 얼마나 마시나요?", sub:"",
+         options:[["1리터 미만",0],["1~2리터",1],["2리터 이상",2]]},
+
+        {title:"운동은 얼마나 하나요?", sub:"",
+         options:[["거의 안함",0],["주 1회",1],["주 3회",2],["매일",4]]},
+
+        {title:"체중 상태는 어떤가요?", sub:"",
+         options:[["정상 또는 이하",3],["기준 초과",2],["많이 초과",1],["비만",0]]},
+
+        {title:"소화가 불편할 때 조치를 하나요?", sub:"",
+         options:[["전혀 안 함",0],["가끔",1],["자주",2],["항상 조치",4]]},
+    ];
+
+    const badge = document.getElementById('stepBadge');
+    const title = document.getElementById('qTitle');
+    const sub = document.getElementById('qSub');
+    const form = document.getElementById('quizForm');
+    const prev = document.getElementById('prevBtn');
+    const next = document.getElementById('nextBtn');
+
+    let cur = 0, ans = new Array(steps.length).fill(null);
+
+    function render(){
+        const s = steps[cur];
+        badge.textContent = `${(cur+1).toString().padStart(2,'0')}`;
+        title.textContent = s.title;
+        sub.textContent = s.sub;
+
+        form.innerHTML = s.options.map(([t,v]) =>
+            `<label class="pill"><input type="radio" name="q${cur}" value="${v}" ${(ans[cur]===v?'checked':'')}><span>${t}</span></label>`
+        ).join("");
+
+        document.querySelector(".bar").style.width = ((cur+1)/steps.length)*100+"%";
+        prev.disabled = cur === 0;
+        next.querySelector("em").textContent = cur === steps.length-1 ? "결과보기" : "다음으로";
+    }
+
+    form.addEventListener('change', e=>{
+        if(e.target.type==="radio") ans[cur] = Number(e.target.value);
+    });
+
+    prev.onclick = () => { if(cur>0){ cur--; render(); } };
+
+    next.onclick = () => {
+        if(ans[cur] == null) return alert("답변을 선택해주세요!");
+        if(cur < steps.length-1){ cur++; render(); return; }
+
+        const total = ans.reduce((a,b)=>a+b,0);
+        const grade = total < 5 ? "bad" : total <= 15 ? "mid" : "good";
+
+        const result = {
+            good:{
+                title:"소화 기관이 아주 건강해요!",
+                desc:"규칙적인 생활과 올바른 식습관을 잘 유지하고 있어요!",
+                img:"/img/char_good.png"
+            },
+            mid:{
+                title:"소화기 건강에 대해 다시 생각해봐요!",
+                desc:"소화 건강에 관심을 더 가져보면 좋아요!",
+                img:"/img/char_mid.png"
+            },
+            bad:{
+                title:"소화 기관이 피곤할 수도 있어요!",
+                desc:"생활습관을 점검하고 개선해보는 것이 좋아요!",
+                img:"/img/char_bad.png"
+            }
+        }[grade];
+
+        document.querySelector(".board-inner").innerHTML = `
+            <div class="result-top">
+                <h3 class="result-score">총점 <strong>${total}</strong>점!</h3>
+                <h2 class="result-title">${result.title}</h2>
+            </div>
+
+            <div class="result-wrap">
+                <div class="result-left"><img src="${result.img}" class="result-character"></div>
+
+                <div class="result-right">
+                    <p class="result-desc">${result.desc}</p>
+                    <div class="result-buttons-wrap">
+                        <div class="result-buttons">
+                            <a ... class="btn retry">다시하기</a>
+                            <a ... class="btn go">건강한 습관 알아보기</a>
+                        </div>
+                </div>
+
+                </div>
+            </div>`;
+    };
+
+    render();
+})();
+</script>
+</body>
+</html>

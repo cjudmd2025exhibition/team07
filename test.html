@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몸 속 미생물 프로젝트</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/logo.png" alt="나의 작은 미생물 친구들">
+            </a>
+        </div>
+        <nav class="nav-menu">
+        <ul>
+            <li class="nav-item item1">
+                <a href="/about.html">미생물이란?</a>
+            </li>
+            <li class="nav-item item2">
+                <a href="/test.html">나의 장은 괜찮을까?</a>
+            </li>
+            <li class="nav-item item3">
+                <a href="/quiz.html">장 속 사건일기</a>
+            </li>
+        </ul>
+        </nav>
+    </header>
+    <section class="self-check">
+        <div class="board-wrap">
+            <img src="/img/test_bg1.png" alt="클립보드" class="board-img">
+            <div class="board-content">
+                <div class="headline">
+                    <span class="pill">나의 장은</span><br>
+                    <span class="strong">괜찮을까?</span>
+                </div>
+            <p class="desc">
+            세계소화기학회(WGO)의 테스트를 통해<br>
+            우리의 장 건강 상태를 알아보아요
+            </p>
+            <a href="/test-s.html" class="start-btn">시작하기</a>
+            <img src="/img/test-c1.png" alt="캐릭터" class="character">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-logo"><img src="/img/logo.png" alt="로고"></div>
+        <div class="footer-links">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        </div>
+        <div class="footer-address">
+        <p>충청북도 청주시 청원구 안덕벌로19번길 116</p>
+        </div>
+        <div class="footer-copy">
+        <p>© 2025, Cheongju University. all rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        //헤더 스크롤 시 나타났다 숨기기
+        (function(){
+            let lastScrollY = 0;
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                  header.classList.add('hide');   // ↓ 스크롤 내릴 때 숨김
+                } else {
+                  header.classList.remove('hide'); // ↑ 스크롤 올릴 때 표시
+                }
+                lastScrollY = currentScrollY;
+            });
+        })();
+    </script>
+</body>

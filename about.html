@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몸 속 미생물 프로젝트</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="/img/logo.png" alt="나의 작은 미생물 친구들">
+    </a>
+    </div>
+    <nav class="nav-menu">
+    <ul>
+        <li class="nav-item item1">
+            <a href="/about.html">미생물이란?</a>
+        </li>
+        <li class="nav-item item2">
+            <a href="/test.html">나의 장은 괜찮을까?</a>
+        </li>
+        <li class="nav-item item3">
+            <a href="/quiz.html">장 속 사건일기</a>
+        </li>
+    </ul>
+    </nav>
+</header>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/img/Slide1.png"></div>
+        <div class="swiper-slide"><img src="/img/Slide2.png"></div>
+        <div class="swiper-slide"><img src="/img/Slide3.png"></div>
+        <div class="swiper-slide"><img src="/img/Slide4.png"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    </div>
+    <!--두번쨰 컨텐츠-->
+    <section class="character-select">
+        <div class="intro-text">
+            <h3>내 몸 속 범인을 찾아라!</h3>
+            <h2>지지와 우리 몸 대소동</h2>
+            <p>
+            우리 눈에는 보이지 않지만, 작고 특별한 친구들이 우리를 기다리고 있어요!<br>
+            대체 어떤 친구들이 우리를 기다리는 걸까요?
+            </p>
+        </div>
+        <div class="character-buttons">
+            <button class="char-btn" data-target="#jiji">
+                <img src="/img/select_1.png" alt="지지">
+            </button>
+            <button class="char-btn" data-target="#saliva">
+                <img src="/img/select_2.png" alt="살리바">
+            </button>
+            <button class="char-btn" data-target="#luter">
+                <img src="/img/select_3.png" alt="루테리">
+            </button>
+            <button class="char-btn" data-target="#lamnos">
+                <img src="/img/select_4.png" alt="람노스">
+            </button>
+        </div>
+    </section>
+<!-- 1. 지지 (왼쪽 이미지 / 오른쪽 텍스트) -->
+<section id="jiji" class="bio-sec left jiji">
+    <div class="inner">
+      <div class="text">
+        <h3><small>천방지축 초등학생</small> 지지 <img src="/img/emojis/.png" alt="" /></h3>
+        <p>
+          활발하고 장난기 많은 초등학생입니다. 늘 밖에서 뛰어놀지만 씻는 것을 귀찮아해
+          청결에는 신경을 잘 쓰지 않아요. 이런 습관 때문에 이번에는 큰 병에 걸려 앓아누우면서,
+          몸속에서 어떤 일이 벌어지고 있는지 직접 겪게 됩니다.
+        </p>
+        <ul class="tags">
+          <li>#초등학생</li><li>5학년</li><li>말괄량이</li><li>호기심대장</li><li>고집쟁이</li>
+        </ul>
+        <ul class="thumbs">
+          <li><img src="/img/jiji_face1.png" alt="지지 화남"></li>
+          <li><img src="/img/jiji_face2.png" alt="지지 웃음"></li>
+          <li><img src="/img/jiji_face3.png" alt="지지 놀람"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 2. 살리바 (오른쪽 이미지 / 왼쪽 텍스트) -->
+  <section id="saliva" class="bio-sec right saliva">
+    <div class="inner">
+      <div class="text">
+        <h3><small>스마일 가디언</small> 살리바</h3>
+        <p>
+          통칭 ‘스트렙토코커스 살리바리우스’. 입안과 인후에 주로 서식하는 대표적인 유익균이에요.
+          구강 내 유해균의 성장을 억제하고, 구취를 줄이며, 건강한 구강 환경을 유지하는 데 도움을 줘요.
+        </p>
+        <ul class="tags">
+          <li>#유익균</li><li>입속친구</li><li>입냄새걱정제로</li>
+        </ul>
+        <ul class="thumbs">
+          <li><img src="/img/saliva_face1.png" alt=""></li>
+          <li><img src="/img/saliva_face2.png" alt=""></li>
+          <li><img src="/img/saliva_face3.png" alt=""></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 3. 루테리 (오른쪽 이미지 / 왼쪽 텍스트) -->
+  <section id="luter" class="bio-sec left luter">
+    <div class="inner"><div class="text">
+      <h3><small>부글부글 위 안전요원</small>루테리</h3>
+      <p>
+        통칭 ‘락토바실러스 루테리’
+        인체에 자연적으로 서식하는 대표적인 유산균입니다.위산으로 서식하기 힘든 위에서 서식하는 몇 안되는 유산균으로, 
+        장내 환경을 개선하며 면역 기능을 조절합니다.설사 완화, 구강 건강, 피부 건강 등 다양한 건강 기능에 도움을 준답니다.
+      </p>
+      <ul class="tags">
+        <li>#유익균</li><li>#까칠이</li><li>#부글부글위산</li><li>#박테리아억제</li>
+      </ul>
+      <ul class="thumbs">
+        <li><img src="/img/saliva_face1.png" alt=""></li>
+        <li><img src="/img/saliva_face2.png" alt=""></li>
+        <li><img src="/img/saliva_face3.png" alt=""></li>
+      </ul>
+    </div>
+  </div>
+  </section>
+  
+  <!-- 4. 람노스 (왼쪽 이미지 / 오른쪽 텍스트) -->
+  <section id="lamnos" class="bio-sec right lamnos">
+    <div class="inner"><div class="text">
+      <h3><small>강력한 장 수호자</small>람노스</h3>
+      <p>
+        통칭 ‘락토바실러스 람노서스’
+        강한 생존력을 가진 장내 대표 유익균으로,
+        묵묵히 장내 유해균의 성장을 억제하고,설사를 예방·완화하며,
+        면역력을 강화하여 우리 몸의 균형과 활력을 지키는 든든한 친구입니다.
+      </p>
+      <ul class="tags">
+        <li>#유익균</li><li>#조용하지만강해요</li><li>#든든한친구</li><li>#수호자</li>
+      </ul>
+      <ul class="thumbs">
+        <li><img src="/img/saliva_face1.png" alt=""></li>
+        <li><img src="/img/saliva_face2.png" alt=""></li>
+        <li><img src="/img/saliva_face3.png" alt=""></li>
+      </ul>
+    </div>
+  </div>
+  </section>
+  <section class="video-sec">
+    <div class="inner">
+      <h2>공식 영상</h2>
+      <p>습관으로 인해 쓰러진 지지. 잠든 사이, 몸속에서 펼쳐지는 예측불허의 대소동!</p>
+  
+      <div class="video-box">
+        <!-- 나중에 영상 연결할 부분 -->
+        <div class="video-placeholder">
+          <div class="play-btn"></div>
+        </div>
+      </div>
+  
+      <div class="link-buttons">
+        <a href="/index.html" class="btn pink">장내 미생물이란 ></a>
+        <a href="/test.html" class="btn blue">나의 장은 괜찮을까? ></a>
+        <a href="/quiz.html" class="btn green">장 속 사건일기 ></a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo"><img src="/img/logo.png" alt="로고"></div>
+    <div class="footer-links">
+    <a href="#">이용약관</a>
+    <a href="#">개인정보처리방침</a>
+    </div>
+    <div class="footer-address">
+    <p>충청북도 청주시 청원구 안덕벌로19번길 116</p>
+    </div>
+    <div class="footer-copy">
+    <p>© 2025, Cheongju University. all rights reserved.</p>
+    </div>
+  </footer>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      //헤더 스크롤 시 나타났다 숨기기
+    (function(){
+        let lastScrollY = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+              header.classList.add('hide');   // ↓ 스크롤 내릴 때 숨김
+            } else {
+              header.classList.remove('hide'); // ↑ 스크롤 올릴 때 표시
+            }
+            lastScrollY = currentScrollY;
+        });
+    })();
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+        autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        },
+        loop: true,
+    });
+    const buttons = document.querySelectorAll('.char-btn');
+    document.querySelectorAll('.char-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+    document.querySelector(btn.dataset.target)
+    ?.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    });
+
+    buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    });
+    });
+    </script>
+</body>
+</html>
